@@ -15,10 +15,11 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-![top-langs](https://github-readme-stats.vercel.app/api/top-langs/?username=youguanxinqing&layout=compact) ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=youguanxinqing&show_icons=true&icon_color=805AD5&text_color=718096&bg_color=ffffff)
-
-<div style="height:300px;">
+<div>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=youguanxinqing&layout=compact" style="height:300px;" />
+</div>
+<div>
+  <img src="https://github-readme-stats.vercel.app/api?username=youguanxinqing&show_icons=true&icon_color=805AD5&text_color=718096&bg_color=ffffff" />
 </div>
 
 # Blog
