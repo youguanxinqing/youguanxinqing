@@ -15,7 +15,4 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-<div>
-    <img align="left" style="height=195px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=youguanxinqing&layout=compact" />
-    <img align="right" src="https://github-readme-stats.vercel.app/api?username=youguanxinqing&show_icons=true&icon_color=805AD5&text_color=718096&bg_color=ffffff" />
-</div>
+![top-langs](https://github-readme-stats.anuraghazra1.vercel.app/api/top-langs/?username=youguanxinqing) ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=youguanxinqing&show_icons=true&line_height=33)
