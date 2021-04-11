@@ -26,3 +26,4 @@ Here are some ideas to get you started:
 
 - 📝 blog: https://youguanxinqing.xyz/
 - ✉️  mail: youguanxinqing@gmail.com || youguanxinqing@qq.com
+- 📙 favorites: https://youguanxinqing.github.io/favorites/#/
