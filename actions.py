@@ -148,7 +148,6 @@ class OneWordAction(Action, CSVReader):
  
 >{line[self.content]}        
  
- 
 """
 
     def act(self) -> Tuple:
