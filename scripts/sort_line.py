@@ -4,48 +4,23 @@ from datetime import datetime
 from itertools import chain
 
 from pypinyin import pinyin, Style
-
-FILE = "-file"
-SORT_KEY = "-sort"
+from tornado.options import define, options, parse_command_line
 
 
-def help_info():
-    print("""
-help:
-  -file={file}
-  -sort={h1},{h2},{h3}
-""")
+class CSV(object):
+    @staticmethod
+    def read(file):
+        with open(file, "r") as fin:
+            reader = csv.reader(fin, delimiter="|")
+            headers = next(reader)
+            for line in reader:
+                yield dict(zip(headers, line))
 
-
-def parse_command_line():
-    if len(sys.argv) <= 1:
-        help_info()
-        return
-
-    need_args = sys.argv[1:]
-    if len(need_args) % 2 != 0:
-        help_info()
-        return
-    
-    length = len(need_args)
-    return {
-        need_args[ki]: need_args[ki+1] 
-        for ki in filter(lambda x: x & 1 == 0, range(length))
-    }
-
-
-def read_csv(file):
-    with open(file, "r") as fin:
-        reader = csv.reader(fin, delimiter="|")
-        headers = next(reader)
-        for line in reader:
-            yield dict(zip(headers, line))
-
-
-def write_csv(data, file):
-    with open(file, "w") as fout:
-        writer = csv.writer(fout, delimiter="|")
-        writer.writerows(data)
+    @staticmethod
+    def write(data, file):
+        with open(file, "w") as fout:
+            writer = csv.writer(fout, delimiter="|")
+            writer.writerows(data)
 
 
 def get_converter(key):
@@ -54,21 +29,21 @@ def get_converter(key):
     return lambda s: "".join(chain.from_iterable(pinyin(s, style=Style.TONE3)))
 
 
-def main():
-    cmds = parse_command_line()
-    _file = cmds[FILE]
-    _keys = cmds[SORT_KEY].split(",")
+define("file", help="file path")
+define("keys", multiple=True, help="sort by key(s)")
 
+def main():
+    parse_command_line()
+    
     # 排序
     sorted_data = sorted(
-        read_csv(_file), 
-        key=lambda item: tuple([get_converter(k)(item[k]) for k in _keys])
+        CSV.read(options.file), 
+        key=lambda item: tuple([get_converter(k)(item[k]) for k in options.keys])
     )
     data = [list(sorted_data[0].keys())] + [list(line.values()) for line in sorted_data]
     
-    write_csv(data, _file)
-    
-    print(f"{_file} ok")
+    CSV.write(data, options.file)
+    print(f"{options.file} ok")
 
 
 if __name__ == "__main__":
