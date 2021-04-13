@@ -1,9 +1,10 @@
-from typing import List, Optional, NewType
+from typing import List, Optional, NewType, Dict, Tuple
 
 import os
 import abc
 import csv
 import random
+import string
 
 
 ############################ type #################################
@@ -35,13 +36,27 @@ class CSVReader(object):
             writer.writerows(page)
 
 
+class GenReadme(object):
+
+    def __init__(self, template_string: str):
+        self.temlate_string = string.Template(template_string)
+
+    @property
+    def readme_path(self) -> str:
+        return os.path.join(os.path.dirname(os.path.abspath(__file__)), "README.md")
+    
+    def render(self, **kwargs):
+        with open(self.readme_path, "w") as fout:
+            fout.write(self.temlate_string.substitute(**kwargs))
+
+
 ############################ action #################################
 
 class Action(metaclass=abc.ABCMeta):
-    name: str = ""
+    title: str = ""
 
     @abc.abstractmethod
-    def action(self):
+    def act(self):
         pass
 
     @property
@@ -54,14 +69,30 @@ class Action(metaclass=abc.ABCMeta):
     
 
 class NoAction(Action):
-    name = "no action"
+    title = "no action"
     
-    def action(self):
+    def act(self):
         pass
 
 
+class InfoAction(Action):
+    title = "info"
+
+    def _to_word(self) -> Word:
+        return f"""
+# {self.title.capitalize()}
+
+- 📝 blog: https://youguanxinqing.xyz/
+- ✉️  mail: youguanxinqing@gmail.com || youguanxinqing@qq.com
+- 📙 favorites: https://youguanxinqing.github.io/favorites/#/
+"""
+
+    def act(self) -> Tuple:
+        return self.title, self._to_word()
+
+
 class OneWordAction(Action, CSVReader):
-    name = "one word" 
+    title = "one" 
 
     def __init__(self, files: Optional[List[str]] = None):
         self._files = files or []
@@ -110,21 +141,31 @@ class OneWordAction(Action, CSVReader):
     
     def _to_word(self, line: Line) -> Word:
         return f"""
-{line[self.content]}        
-
+# {self.title.capitalize()} 
+ 
+  
 {line[self.author]}{line[self.name]} 
+ 
+>{line[self.content]}        
+ 
+ 
 """
 
-    def action(self):
+    def act(self) -> Tuple:
         page = sorted(self._read_csvs(), key=lambda item: item[self.freq])
         if not page:
             return
         
         line: Line = self._random_choose(self._drop_hot_freq(page))
         self._incr_freq(line[self.pno], line[self.lno])
-        print(self._to_word(line))
+        return self.title, self._to_word(line)
 
 
 if __name__ == "__main__":
-    act = OneWordAction(["book.csv", "mood.csv", "poetry.csv"])
-    act.action()
+    actions = [
+        OneWordAction(["book.csv", "mood.csv", "poetry.csv"]),
+        InfoAction(),
+    ]
+    GenReadme("$one$info").render(**{k: v for k, v in map(lambda action: action.act(), actions)})
+
+    
