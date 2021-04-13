@@ -1,6 +1,4 @@
-import sys
 import csv
-from datetime import datetime
 from itertools import chain
 
 from pypinyin import pinyin, Style

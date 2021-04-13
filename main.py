@@ -64,7 +64,7 @@ class Action(metaclass=abc.ABCMeta):
         return os.path.dirname(os.path.abspath(__file__))
     
     @property
-    def data_path(self) -> dir:
+    def data_path(self) -> str:
         return os.path.join(self.root_path, "data")
     
 
@@ -97,7 +97,7 @@ class OneWordAction(Action, CSVReader):
     def __init__(self, files: Optional[List[str]] = None):
         self._files = files or []
 
-        self.ALLOW_MAX_DIFF = 5
+        self.ALLOW_MAX_DIFF = 2
         # 频次, 作者, 作品, 内容
         self.freq, self.author, self.name, self.content = 0, 1, 2, 3
         # 页号, 行号
