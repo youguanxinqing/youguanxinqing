@@ -1,0 +1,31 @@
+
+name: Index App
+
+on:
+  schedule:
+    - cron: "1 1 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+      with:
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+    - uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+        architecture: 'x64'
+    - name: Generate New Readme
+      run: |
+        python main.py
+    - name: Commit Files
+      run: |
+        git config --local user.email "youguanxinqing@gmail.com"
+        git config --local user.name "youguanxinqing(bot)"
+        git commit -m "update index $(date +%Y-%m-%d)" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
