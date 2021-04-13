@@ -3,7 +3,7 @@ name: Index App
 
 on:
   schedule:
-    - cron: "36 10 * * *"
+    - cron: "05 19 * * *"
 
 jobs:
   build:
