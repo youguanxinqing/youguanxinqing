@@ -22,7 +22,7 @@ jobs:
         python main.py
     - name: Commit Files
       run: |
-        git config --local user.email "youguanxinqing@gmail.com"
+        git config --local user.email "youguanxinqing@qq.com"
         git config --local user.name "youguanxinqing(bot)"
         git commit -m "update index $(date +%Y-%m-%d)" -a
     - name: Push changes
