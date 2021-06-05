@@ -119,7 +119,7 @@ class OneWordAction(Action, CSVReader):
         """
         min_freq = int(page[0][self.freq])
         allow_max_freq = min_freq + self.ALLOW_MAX_DIFF
-        return list(filter(lambda l: int(l[self.freq]) <= allow_max_freq, page))
+        return list(filter(lambda l: int(l[self.freq]) < allow_max_freq, page))
     
     def _random_choose(self, words) -> Page:
         """
