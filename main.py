@@ -162,7 +162,7 @@ class OneWordAction(Action, CSVReader):
 
 if __name__ == "__main__":
     actions = [
-        OneWordAction(["book.csv", "mood.csv", "poetry.csv", "internet.csv"]),
+        OneWordAction(["book.csv", "mood.csv", "poetry.csv", "internet.csv", "video.csv"]),
         InfoAction(),
     ]
     GenReadme("$one$info").render(**{k: v for k, v in map(lambda action: action.act(), actions)})
