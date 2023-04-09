@@ -2,6 +2,7 @@
 name: Index App
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "05 19 * * *"
 
