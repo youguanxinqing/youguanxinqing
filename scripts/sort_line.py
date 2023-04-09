@@ -88,10 +88,10 @@ class CSV(object):
 
 def init_freq(lines: List[Liner]) -> NoReturn:
     old_liner = [l for l in lines if l.freq > 0]
-    avg_freq = sum(map(lambda l: l.freq, old_liner)) / (len(old_liner) or 1)
+    avg_freq = int(sum(map(lambda l: l.freq, old_liner)) / (len(old_liner) or 1))
     
     for line in lines:
-        if line.freq < 0:
+        if line.freq <= 0:
             line.freq = avg_freq
 
 
