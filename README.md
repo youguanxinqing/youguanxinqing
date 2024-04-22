@@ -12,3 +12,6 @@
 - 📝 blog: https://youguanxinqing.xyz/
 - ✉️  mail: youguanxinqing@gmail.com || youguanxinqing@qq.com
 - 📙 favorites: https://youguanxinqing.github.io/favorites/#/
+
+# Code
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
