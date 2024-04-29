@@ -15,6 +15,6 @@
 
 # About Me
 
-Language: Python, Go, Rust, Javascript, Lua
+Language: Python / Go / Rust / Javascript / Lua
 
-Dev Enviroment: Fish(Shell), NVIM(If you are a nvimer, we will probably become friends.)
+Dev Enviroment: Fish(Shell) / NVIM(If you are a nvimer, we will probably become friends ^_^)
