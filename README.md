@@ -2,9 +2,9 @@
 # One 
  
   
-落落《剩者为王》 
+jo.landy023.1.22 
  
->既然我没有在二十岁前被车撞死而永葆青春，那么年龄增长也是必然的事。        
+>对23年有期待的大家要说的是“君莫舞，不见玉环飞燕皆尘土”，对已知道自身命运的自己要说的是“预见了所有悲伤，却依然欣然向往”。        
  
 
 # Info
@@ -12,9 +12,3 @@
 - 📝 blog: https://youguanxinqing.xyz/
 - ✉️  mail: youguanxinqing@gmail.com || youguanxinqing@qq.com
 - 📙 favorites: https://youguanxinqing.github.io/favorites/#/
-
-# About Me
-
-Language: Python / Go / Rust / Javascript / Lua
-
-Dev Enviroment: Fish(Shell) / NVIM(If you are a nvimer, we will probably become friends ^_^)
