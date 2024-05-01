@@ -1,4 +1,4 @@
-from typing import List, Optional, NewType, Dict, Tuple
+from typing import List, Optional, NewType, Dict, Tuple, Union
 
 import os
 import abc
@@ -8,10 +8,10 @@ import string
 
 
 ############################ type #################################
-Word = NewType("Word", str)
-Line = NewType("Line", List[str])
-Page = NewType("Page", List[Line])
-Book = NewType("Book", List[Page])
+Word = str
+Line = List[Union[str, int]]
+Page = List[Line]
+Book = List[Page]
 
 
 ############################ tool #################################
@@ -91,6 +91,22 @@ class InfoAction(Action):
         return self.title, self._to_word()
 
 
+class AboutMeAction(Action):
+    title = "about_me"
+
+    def _to_about_me(self) -> Word:
+        return f"""
+# About Me
+
+Language: Python / Go / Rust / Javascript / Lua
+
+Dev Enviroment: Fish(Shell) / NVIM(If you are a nvimer, we will probably become friends ^_^)
+"""
+
+    def act(self) -> Tuple:
+        return self.title, self._to_about_me()
+
+
 class OneWordAction(Action, CSVReader):
     title = "one" 
 
@@ -110,10 +126,12 @@ class OneWordAction(Action, CSVReader):
             存在 header, 因此 line_no + 1
         """
         return [
-            [*line, pno, lno+1] for pno, page in enumerate(map(self.read_csv, map(lambda f: os.path.join(self.data_path, f), self._files))) for lno, line in enumerate(page)
+            [*line, pno, lno+1] for pno, page in enumerate(
+                map(self.read_csv, map(lambda f: os.path.join(self.data_path, f), self._files))
+            ) for lno, line in enumerate(page)
         ]
     
-    def _drop_hot_freq(self, page: Page) -> Page:
+    def _drop_hot_freq(self, page: Page) -> List[Line]:
         """
             过滤掉频率过高的句子
         """
@@ -121,7 +139,7 @@ class OneWordAction(Action, CSVReader):
         allow_max_freq = min_freq + self.ALLOW_MAX_DIFF
         return list(filter(lambda l: int(l[self.freq]) < allow_max_freq, page))
     
-    def _random_choose(self, words) -> Page:
+    def _random_choose(self, words: List[Line]) -> Line:
         """
             随机选择一句
         """
@@ -150,13 +168,13 @@ class OneWordAction(Action, CSVReader):
  
 """
 
-    def act(self) -> Tuple:
+    def act(self) -> Optional[Tuple]:
         page = sorted(self._read_csvs(), key=lambda item: item[self.freq])
         if not page:
             return
         
         line: Line = self._random_choose(self._drop_hot_freq(page))
-        self._incr_freq(line[self.pno], line[self.lno])
+        self._incr_freq(int(line[self.pno]), int(line[self.lno]))
         return self.title, self._to_word(line)
 
 
@@ -164,7 +182,8 @@ if __name__ == "__main__":
     actions = [
         OneWordAction(["book.csv", "mood.csv", "poetry.csv", "internet.csv", "video.csv"]),
         InfoAction(),
+        AboutMeAction(),
     ]
-    GenReadme("$one$info").render(**{k: v for k, v in map(lambda action: action.act(), actions)})
+    GenReadme("$one$info$about_me").render(**{k: v for k, v in map(lambda action: action.act(), actions)})
 
     
