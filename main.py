@@ -100,7 +100,7 @@ class AboutMeAction(Action):
 
 Language: Python / Go / Rust / Javascript / Lua
 
-Dev Enviroment: Fish(Shell) / NVIM(If you are a nvimer, we will probably become friends ^_^)
+Dev Environment: Fish(Shell) / Nvim(If you are a nvimer, we will probably become friends ^_^)
 """
 
     def act(self) -> Tuple:
