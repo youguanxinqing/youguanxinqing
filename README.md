@@ -17,4 +17,4 @@
 
 Language: Python / Go / Rust / Javascript / Lua
 
-Dev Environment: Fish(Shell) / Nvim(If you are a nvimer, we will probably become friends ^_^)
+Dev Environment: ArchLinux(Just a **newbie**) / Fish(Shell) / Nvim(If you are a nvimer, we will probably become friends ^_^)
