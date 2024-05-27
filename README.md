@@ -2,9 +2,9 @@
 # One 
  
   
-MOTHER023.12.27 
+王维《叹白髪》 
  
->the sun watches what i do but the moon knows all my secrets        
+>宿昔朱颜成暮齿，须臾白发变垂髫。一生几许伤心事，不向空门何处销。        
  
 
 # Info
