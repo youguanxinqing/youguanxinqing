@@ -2,9 +2,9 @@
 # One 
  
   
-MOTHER023.12.27 
+晏几道《临江仙》 
  
->the sun watches what i do but the moon knows all my secrets        
+>落花人独立，微雨燕双飞。        
  
 
 # Info
