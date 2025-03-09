@@ -2,9 +2,9 @@
 # One 
  
   
-MOTHER023.12.27 
+GeekPlux022.3.3 
  
->the sun watches what i do but the moon knows all my secrets        
+>不要依赖于任何一个非纯文本格式的笔记软件，否则你会失去自由。        
  
 
 # Info
