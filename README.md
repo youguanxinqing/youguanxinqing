@@ -2,9 +2,9 @@
 # One 
  
   
-史铁生《我与地坛》 
+MOTHER023.12.27 
  
->时间不早了可我一刻也不想离开你，一刻也不想离开你可时间毕竟是不早了。        
+>the sun watches what i do but the moon knows all my secrets        
  
 
 # Info
