@@ -2,9 +2,9 @@
 # One 
  
   
-MOTHER023.12.27 
+晏几道《鹧鸪天》 
  
->the sun watches what i do but the moon knows all my secrets        
+>今宵剩把银釭照，犹恐相逢是梦中。        
  
 
 # Info
