@@ -2,9 +2,9 @@
 # One 
  
   
-李煜《临江仙》 
+MOTHER023.12.27 
  
->炉香闲袅凤凰儿，空持罗带，回首恨依依。        
+>the sun watches what i do but the moon knows all my secrets        
  
 
 # Info
