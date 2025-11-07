@@ -2,9 +2,9 @@
 # One 
  
   
-MOTHER023.12.27 
+安意如《聊将锦瑟记流年》 
  
->the sun watches what i do but the moon knows all my secrets        
+>茫茫来日愁如海，寄语羲和快着鞭。此时，我相信，命运让我爱上你，一定自有深意。        
  
 
 # Info
