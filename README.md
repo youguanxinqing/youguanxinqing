@@ -2,9 +2,9 @@
 # One 
  
   
-李煜《望江南》 
+MOTHER023.12.27 
  
->多少恨，昨夜梦魂中。还似旧时游上苑，车如流水马如龙。花月正春风。        
+>the sun watches what i do but the moon knows all my secrets        
  
 
 # Info
