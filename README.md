@@ -2,9 +2,9 @@
 # One 
  
   
-MOTHER023.12.27 
+佚名《英语高手是这样炼成的》 
  
->the sun watches what i do but the moon knows all my secrets        
+>任何事情都有好的一面，现在放弃就看不见了。加油哦，再坚持一下。        
  
 
 # Info
